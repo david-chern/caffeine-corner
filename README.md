@@ -1,4 +1,4 @@
-# Group X – Caffeine Corner ☕
+# Group 11– Caffeine Corner ☕
 
 We are building an online store to sell coffee beans, roasted and non-roasted coffee, and energy drinks. Customers can browse different blends, learn about our roasting process, and order their favorite products online.
 
