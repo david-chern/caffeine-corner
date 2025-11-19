@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caffeine Corner ☕</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>☕ Caffeine Corner</h1>
+            <p class="tagline">Premium Coffee Blends for Coffee Lovers</p>
+        </header>
+
+        <main>
+            <section class="about-section">
+                <h2>About Us</h2>
+                <p>
+                    Welcome to Caffeine Corner, your destination for premium coffee blends. 
+                    We source the finest coffee beans from around the world and craft unique 
+                    blends that cater to every coffee enthusiast's taste. Whether you prefer 
+                    a bold espresso or a smooth latte, we have the perfect blend for you.
+                </p>
+                <p>
+                    Our mission is to bring the finest coffee experience to your doorstep, 
+                    allowing you to browse, customize, and order premium coffee blends online 
+                    with ease. Join our community of coffee lovers and discover your next 
+                    favorite brew!
+                </p>
+            </section>
+
+            <section class="auth-section">
+                <div class="auth-container">
+                    <div class="auth-tabs">
+                        <button class="tab-button active" onclick="showLogin()">Login</button>
+                        <button class="tab-button" onclick="showRegister()">Register</button>
+                    </div>
+
+                    <div id="loginForm" class="auth-form">
+                        <h3>Login</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="loginEmail">Email:</label>
+                                <input type="email" id="loginEmail" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword">Password:</label>
+                                <input type="password" id="loginPassword" name="password" required>
+                            </div>
+                            <button type="submit" class="submit-btn">Login</button>
+                        </form>
+                    </div>
+
+                    <div id="registerForm" class="auth-form" style="display: none;">
+                        <h3>Register</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="registerName">Full Name:</label>
+                                <input type="text" id="registerName" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="registerEmail">Email:</label>
+                                <input type="email" id="registerEmail" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="registerPassword">Password:</label>
+                                <input type="password" id="registerPassword" name="password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password:</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                            </div>
+                            <button type="submit" class="submit-btn">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function showLogin() {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('registerForm').style.display = 'none';
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function showRegister() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'block';
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+
