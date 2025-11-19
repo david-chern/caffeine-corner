@@ -76,7 +76,7 @@ CAFE/
 
 ## Contributing
 
-This is a term project for Group X. Team members should coordinate through the repository and follow standard git workflow practices.
+This is a term project for Group 11. Team members should coordinate through the repository and follow standard git workflow practices.
 
 ## License
 
