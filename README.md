@@ -162,6 +162,21 @@ MongoDB Connected: [your-cluster-name]
 Server is running at http://localhost:3000
 ```
 
+### Seeding the Database
+
+To populate the database with sample data (users, products, and orders):
+
+```bash
+npm run seed
+```
+
+This will create:
+- 3 Users (1 admin, 2 customers)
+- 8 Products (various coffee types and energy drinks)
+- 2 Sample Orders
+
+**Note:** Running the seed script will clear all existing data in the database.
+
 ---
 
 ## 📁 Project Structure
@@ -174,13 +189,18 @@ caffeine-corner/
 │   ├── User.js              # User schema (customers & admins)
 │   ├── Product.js           # Product schema (coffee, energy drinks)
 │   └── Order.js             # Order schema (customer orders)
+├── scripts/
+│   └── seedDatabase.js      # Database seeding script
+├── utils/
+│   └── dbHelpers.js         # Database helper functions
 ├── public/
-│   ├── index.html           # Main landing page
+│   ├── index.html           # Main landing page (e-commerce design)
 │   └── style.css            # Coffee-themed styling
 ├── .env                     # Environment variables (not in git)
 ├── .gitignore               # Git ignore rules
 ├── package.json             # Project dependencies and scripts
 ├── server.js                # Express server entry point
+├── DATABASE_SCHEMA.md       # Detailed database schema documentation
 └── README.md                # Project documentation
 ```
 
@@ -188,45 +208,140 @@ caffeine-corner/
 
 ## 🗄️ Database Schema
 
-### User Model
+### Entity Relationship Diagram
+
+```mermaid
+erDiagram
+    USER ||--o{ ORDER : places
+    PRODUCT ||--o{ ORDER_ITEM : contains
+    ORDER ||--o{ ORDER_ITEM : includes
+    
+    USER {
+        ObjectId _id PK
+        String name
+        String email UK
+        String password
+        String role
+        Array addresses
+        Date createdAt
+    }
+    
+    PRODUCT {
+        ObjectId _id PK
+        String name
+        String description
+        String category
+        Number price
+        Array images
+        String origin
+        String roastLevel
+        Array flavorProfile
+        Number stock
+        Array grindOptions
+        Boolean featured
+        Date createdAt
+    }
+    
+    ORDER {
+        ObjectId _id PK
+        ObjectId user_id FK
+        Number subtotal
+        Number shipping
+        Number tax
+        Number total
+        Object shippingAddress
+        String status
+        String paymentMethod
+        Date createdAt
+        Date updatedAt
+    }
+    
+    ORDER_ITEM {
+        ObjectId product_id FK
+        Number quantity
+        Number price
+        String grindOption
+    }
+```
+
+### Schema Overview
+
+#### User Model
 Stores customer and administrator information.
-- `name` (String, required)
-- `email` (String, required, unique)
-- `password` (String, required, minlength: 6)
-- `role` (Enum: 'customer' | 'admin', default: 'customer')
-- `addresses` (Array of address objects)
-- `createdAt` (Date)
+- `name` (String, required) - User's full name
+- `email` (String, required, unique) - Unique email address (lowercase)
+- `password` (String, required, minlength: 6) - Hashed password
+- `role` (Enum: 'customer' | 'admin', default: 'customer') - User role
+- `addresses` (Array of address objects) - Shipping addresses
+- `createdAt` (Date) - Account creation timestamp
 
-### Product Model
+#### Product Model
 Stores coffee products, energy drinks, and related items.
-- `name` (String, required)
-- `description` (String, required)
+- `name` (String, required) - Product name
+- `description` (String, required) - Product description
 - `category` (Enum: 'roasted-coffee' | 'green-coffee' | 'specialty-blend' | 'energy-drink')
-- `price` (Number, required, min: 0)
-- `images` (Array of Strings)
-- `origin` (String)
-- `roastLevel` (Enum: 'light' | 'medium' | 'dark')
-- `flavorProfile` (Array of Strings)
-- `stock` (Number, default: 0)
-- `grindOptions` (Array of Strings)
-- `featured` (Boolean, default: false)
-- `createdAt` (Date)
+- `price` (Number, required, min: 0) - Product price
+- `images` (Array of Strings) - Product image URLs
+- `origin` (String) - Coffee origin country/region
+- `roastLevel` (Enum: 'light' | 'medium' | 'dark') - Roast level
+- `flavorProfile` (Array of Strings) - Flavor descriptors
+- `stock` (Number, default: 0) - Available stock quantity
+- `grindOptions` (Array of Strings) - Available grind options
+- `featured` (Boolean, default: false) - Featured product flag
+- `createdAt` (Date) - Product creation timestamp
 
-### Order Model
+#### Order Model
 Stores customer orders with items and shipping information.
-- `user` (ObjectId, reference to User)
-- `items` (Array of order items with product, quantity, price)
-- `subtotal` (Number, required)
-- `shipping` (Number, default: 0)
-- `tax` (Number, default: 0)
-- `total` (Number, required)
-- `shippingAddress` (Address object)
+- `user` (ObjectId, reference to User) - Order owner
+- `items` (Array of order items) - Order items (embedded schema)
+- `subtotal` (Number, required) - Subtotal before tax/shipping
+- `shipping` (Number, default: 0) - Shipping cost
+- `tax` (Number, default: 0) - Tax amount
+- `total` (Number, required) - Total order amount
+- `shippingAddress` (Address object) - Delivery address
 - `status` (Enum: 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled')
 - `paymentMethod` (Enum: 'credit-card' | 'paypal' | 'debit-card')
-- `createdAt` (Date)
-- `updatedAt` (Date)
+- `createdAt` (Date) - Order creation timestamp
+- `updatedAt` (Date) - Last update timestamp
+
+### Relationships
+
+1. **User → Order (One-to-Many)**: One user can place multiple orders
+2. **Order → Order Item (One-to-Many)**: One order contains multiple items
+3. **Product → Order Item (One-to-Many)**: One product can appear in multiple orders
+
+For detailed schema documentation, see [DATABASE_SCHEMA.md](./DATABASE_SCHEMA.md)
 
 ---
+
+## 🔧 Database Utilities
+
+### Helper Functions
+
+The project includes database helper utilities in `utils/dbHelpers.js`:
+
+- **User Helpers**: `findByEmail()`, `findById()`, `create()`, `findAll()`
+- **Product Helpers**: `findAll()`, `findById()`, `create()`, `updateStock()`, `getFeatured()`, `search()`
+- **Order Helpers**: `findAll()`, `findById()`, `create()`, `updateStatus()`, `findByUser()`
+
+### Usage Example
+
+```javascript
+const { product, user, order } = require('./utils/dbHelpers');
+
+// Get featured products
+const featured = await product.getFeatured();
+
+// Find user by email
+const user = await user.findByEmail('user@example.com');
+
+// Create order
+const newOrder = await order.create({
+  user: userId,
+  items: [{ product: productId, quantity: 2, price: 18.99 }],
+  shipping: 5.99
+});
+```
 
 ## 📡 API Documentation
 
