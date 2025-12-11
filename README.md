@@ -38,18 +38,23 @@ Our mission is to bring the finest coffee experience to your doorstep, allowing 
 ## ✨ Features
 
 ### 🛍️ Product Catalog
-- **Roasted Coffee** - Artisan-roasted blends with detailed flavor profiles and roast levels
+- **20+ Premium Products** - Extensive selection of coffee and beverages
+- **Roasted Coffee** - Artisan-roasted blends with detailed flavor profiles and roast levels (Light, Medium, Dark)
 - **Green Coffee Beans** - Unroasted beans for home roasting enthusiasts  
-- **Specialty Blends** - Curated coffee blends from around the world
+- **Specialty Blends** - Curated coffee blends from around the world (including flavored varieties)
 - **Energy Drinks** - Premium energy drink selection
 - **Product Details** - Origin information, tasting notes, and brewing recommendations
+- **Grind Options** - Customizable grind settings (Whole Bean, Coarse, Medium, Fine, Espresso)
 
 ### 👥 Customer Experience
 - **Browse & Discover** - Explore products by origin, roast level, flavor profile, and price
-- **Educational Content** - Learn about our roasting process, brewing methods, and coffee origins
-- **Customization** - Create custom coffee blends with personalized grind settings
-- **Order Management** - Easy online ordering with secure checkout and order tracking
-- **User Authentication** - Secure login and registration system
+- **Product Details** - Detailed product pages with images, descriptions, and flavor profiles
+- **Shopping Cart** - Add items to cart with grind option selection, quantity management, and real-time totals
+- **Free Shipping** - Free shipping on orders over $50
+- **Checkout Process** - Secure checkout with shipping information and payment method selection
+- **Order Management** - Complete order processing with order confirmation and tracking
+- **Recommended Products** - "You May Also Like" suggestions on product detail pages
+- **Responsive Design** - Mobile-friendly interface for shopping on any device
 
 ### 🚀 Future Enhancements
 - **Subscription Service** - Monthly coffee subscription boxes with personalized selections
@@ -172,7 +177,7 @@ npm run seed
 
 This will create:
 - 3 Users (1 admin, 2 customers)
-- 8 Products (various coffee types and energy drinks)
+- 20 Products (various coffee types, specialty blends, and energy drinks)
 - 2 Sample Orders
 
 **Note:** Running the seed script will clear all existing data in the database.
@@ -195,7 +200,15 @@ caffeine-corner/
 │   └── dbHelpers.js         # Database helper functions
 ├── public/
 │   ├── index.html           # Main landing page (e-commerce design)
-│   └── style.css            # Coffee-themed styling
+│   ├── cart.html            # Shopping cart page
+│   ├── checkout.html        # Checkout page
+│   ├── product.html         # Product detail page
+│   ├── style.css            # Coffee-themed styling
+│   ├── cart.css             # Cart and checkout styling
+│   ├── product-detail.css   # Product detail page styling
+│   └── js/
+│       ├── cart.js          # Cart functionality (localStorage)
+│       └── product.js       # Product detail functionality
 ├── .env                     # Environment variables (not in git)
 ├── .gitignore               # Git ignore rules
 ├── package.json             # Project dependencies and scripts
@@ -348,7 +361,18 @@ const newOrder = await order.create({
 API endpoints will be documented here as they are developed.
 
 ### Current Endpoints
+
+#### Frontend Routes
 - `GET /` - Serves the main landing page (`index.html`)
+- `GET /cart.html` - Shopping cart page
+- `GET /checkout.html` - Checkout page
+- `GET /product.html?id=<productId>` - Product detail page
+
+#### API Endpoints
+- `GET /api/products` - Get all products
+- `GET /api/products/:id` - Get single product by ID
+- `POST /api/checkout` - Process checkout and create order
+- `GET /api/orders/:orderId` - Get order details by ID
 
 ---
 
