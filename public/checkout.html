@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Caffeine Corner ☕</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
+    <script src="js/cart.js" defer></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; color: inherit;"><h1>☕ Caffeine Corner</h1></a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#products" class="nav-link">Products</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#auth" class="auth-link">Login / Register</a></li>
+                <li>
+                    <a href="cart.html" class="cart-icon" title="Shopping Cart">
+                        <span class="cart-badge" style="display: none;">0</span>
+                        🛒
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="checkout-section">
+            <div class="container">
+                <h1 class="page-title">Checkout</h1>
+                <div class="free-shipping-banner">
+                    🚚 <strong>Free Shipping</strong> on orders over $50!
+                </div>
+                
+                <div class="checkout-layout">
+                    <!-- Checkout Form -->
+                    <div class="checkout-form-container">
+                        <form id="checkoutForm" onsubmit="submitCheckout(event)">
+                            <div class="form-section">
+                                <h2>Shipping Information</h2>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="name">Full Name *</label>
+                                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="email">Email Address *</label>
+                                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number *</label>
+                                        <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="street">Street Address *</label>
+                                    <input type="text" id="street" name="street" required placeholder="123 Coffee Street">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="city">City *</label>
+                                        <input type="text" id="city" name="city" required placeholder="Seattle">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="state">State *</label>
+                                        <input type="text" id="state" name="state" required placeholder="WA">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="zipCode">ZIP Code *</label>
+                                        <input type="text" id="zipCode" name="zipCode" required placeholder="98101">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="country">Country *</label>
+                                    <input type="text" id="country" name="country" value="USA" required>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h2>Payment Method</h2>
+                                <div class="form-group">
+                                    <label for="paymentMethod">Select Payment Method *</label>
+                                    <select id="paymentMethod" name="paymentMethod" required>
+                                        <option value="">Choose a payment method</option>
+                                        <option value="credit-card">Credit Card</option>
+                                        <option value="debit-card">Debit Card</option>
+                                        <option value="paypal">PayPal</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="submit-order-btn">Place Order</button>
+                        </form>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="checkout-summary-container">
+                        <div class="checkout-summary-card">
+                            <h2>Order Summary</h2>
+                            <div id="checkoutItems">
+                                <!-- Checkout items will be rendered here by cart.js -->
+                            </div>
+                            <div id="checkoutSummary">
+                                <!-- Checkout summary will be rendered here by cart.js -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>☕ Caffeine Corner</h3>
+                    <p>Premium coffee blends delivered to your doorstep.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#products">Products</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>📧 info@caffeinecorner.com</p>
+                    <p>📞 1-800-COFFEE</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Caffeine Corner. All rights reserved. | Group 11</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize checkout page when DOM loads
+        document.addEventListener('DOMContentLoaded', () => {
+            initCart();
+            renderCheckoutPage();
+        });
+
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
+

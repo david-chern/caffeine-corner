@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Caffeine Corner ☕</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="product-detail.css">
+    <script src="js/cart.js" defer></script>
+    <script src="js/product.js" defer></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; color: inherit;"><h1>☕ Caffeine Corner</h1></a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#products" class="nav-link">Products</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#auth" class="auth-link">Login / Register</a></li>
+                <li>
+                    <a href="cart.html" class="cart-icon" title="Shopping Cart">
+                        <span class="cart-badge" style="display: none;">0</span>
+                        🛒
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Breadcrumb -->
+        <section class="breadcrumb-section">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span> / </span>
+                    <a href="index.html#products">Products</a>
+                    <span> / </span>
+                    <span id="breadcrumbProduct">Product Details</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Detail Section -->
+        <section class="product-detail-section">
+            <div class="container">
+                <div id="productDetailContainer" class="product-detail-container">
+                    <!-- Product details will be loaded here by product.js -->
+                    <div class="loading-message">Loading product details...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommended Products Section -->
+        <section class="recommended-section">
+            <div class="container">
+                <h2 class="section-title">You May Also Like</h2>
+                <div id="recommendedProducts" class="products-grid">
+                    <!-- Recommended products will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>☕ Caffeine Corner</h3>
+                    <p>Premium coffee blends delivered to your doorstep.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#products">Products</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>📧 info@caffeinecorner.com</p>
+                    <p>📞 1-800-COFFEE</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Caffeine Corner. All rights reserved. | Group 11</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+        
+        // Ensure recommended products load after page is fully ready
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                if (typeof loadRecommendedProducts === 'function') {
+                    loadRecommendedProducts();
+                }
+            }, 200);
+        });
+    </script>
+</body>
+</html>
+

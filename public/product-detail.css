@@ -1,0 +1,340 @@
+/* Product Detail Page Styles */
+
+/* Breadcrumb */
+.breadcrumb-section {
+    padding: 100px 0 20px;
+    background: var(--bg-light);
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95em;
+    color: var(--text-light);
+}
+
+.breadcrumb a {
+    color: var(--coffee-dark);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+    color: var(--coffee-medium);
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    color: var(--text-light);
+}
+
+/* Product Detail Section */
+.product-detail-section {
+    padding: 40px 0 80px;
+    background: var(--white);
+}
+
+.product-detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Loading and Error Messages */
+.loading-message,
+.error-message {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.error-message h2 {
+    color: var(--coffee-dark);
+    margin-bottom: 15px;
+    font-size: 2em;
+}
+
+.error-message p {
+    color: var(--text-light);
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+/* Product Detail Wrapper */
+.product-detail-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* Product Image */
+.product-detail-image {
+    position: sticky;
+    top: 100px;
+}
+
+.product-detail-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+/* Product Info */
+.product-detail-info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.product-category-badge {
+    display: inline-block;
+    background: var(--coffee-cream);
+    color: var(--coffee-dark);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.product-detail-title {
+    font-size: 2.8em;
+    color: var(--coffee-dark);
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.product-origin-info,
+.product-roast-info {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 1.1em;
+}
+
+.origin-label,
+.roast-label {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.origin-value,
+.roast-value {
+    color: var(--coffee-medium);
+    font-weight: 500;
+}
+
+.product-price-large {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--coffee-dark);
+    margin: 10px 0;
+}
+
+.product-description-full {
+    padding-top: 20px;
+    border-top: 2px solid var(--bg-light);
+}
+
+.product-description-full h3 {
+    color: var(--coffee-dark);
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.product-description-full p {
+    color: var(--text-dark);
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+/* Flavor Profile */
+.product-flavors {
+    padding-top: 20px;
+    border-top: 2px solid var(--bg-light);
+}
+
+.product-flavors h3 {
+    color: var(--coffee-dark);
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.flavor-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.flavor-tag {
+    background: var(--bg-light);
+    color: var(--coffee-dark);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.95em;
+    font-weight: 500;
+    border: 2px solid var(--coffee-cream);
+}
+
+/* Grind Options */
+.product-grind-options {
+    padding-top: 20px;
+    border-top: 2px solid var(--bg-light);
+}
+
+.product-grind-options h3 {
+    color: var(--coffee-dark);
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.grind-options-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.grind-option-radio {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin: 0;
+}
+
+.grind-option-radio input[type="radio"] {
+    display: none;
+}
+
+.grind-option-label {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 2px solid var(--coffee-cream);
+    border-radius: 25px;
+    font-size: 0.95em;
+    font-weight: 600;
+    color: var(--coffee-dark);
+    background: var(--white);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.grind-option-radio input[type="radio"]:checked + .grind-option-label {
+    background: linear-gradient(135deg, var(--coffee-dark) 0%, var(--coffee-medium) 100%);
+    color: var(--white);
+    border-color: var(--coffee-dark);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(111, 78, 55, 0.3);
+}
+
+.grind-option-label:hover {
+    border-color: var(--coffee-dark);
+    transform: translateY(-2px);
+}
+
+.grind-note {
+    font-size: 0.9em;
+    color: var(--text-light);
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* Product Actions */
+.product-actions {
+    padding-top: 30px;
+    border-top: 2px solid var(--bg-light);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.add-to-cart-large {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--coffee-dark) 0%, var(--coffee-medium) 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    font-size: 1.3em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-to-cart-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(111, 78, 55, 0.4);
+}
+
+.add-to-cart-large:active {
+    transform: translateY(-1px);
+}
+
+.back-to-products-btn {
+    text-align: center;
+    color: var(--coffee-dark);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px;
+    transition: color 0.2s ease;
+}
+
+.back-to-products-btn:hover {
+    color: var(--coffee-medium);
+    text-decoration: underline;
+}
+
+/* Recommended Section */
+.recommended-section {
+    padding: 80px 0;
+    background: var(--bg-light);
+}
+
+.recommended-section .products-grid .product-card-link {
+    position: relative;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .product-detail-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .product-detail-image {
+        position: static;
+    }
+
+    .product-detail-title {
+        font-size: 2.2em;
+    }
+
+    .product-price-large {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-detail-title {
+        font-size: 1.8em;
+    }
+
+    .product-price-large {
+        font-size: 1.8em;
+    }
+
+    .product-description-full,
+    .product-flavors,
+    .product-grind-options {
+        padding-top: 15px;
+    }
+
+    .add-to-cart-large {
+        font-size: 1.1em;
+        padding: 16px;
+    }
+}
+

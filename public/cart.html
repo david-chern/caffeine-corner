@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Caffeine Corner ☕</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
+    <script src="js/cart.js" defer></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; color: inherit;"><h1>☕ Caffeine Corner</h1></a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#products" class="nav-link">Products</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#auth" class="auth-link">Login / Register</a></li>
+                <li>
+                    <a href="cart.html" class="cart-icon" title="Shopping Cart">
+                        <span class="cart-badge" style="display: none;">0</span>
+                        🛒
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="cart-section">
+            <div class="container">
+                <h1 class="page-title">Shopping Cart</h1>
+                <div class="free-shipping-banner">
+                    🚚 <strong>Free Shipping</strong> on orders over $50!
+                </div>
+                
+                <div class="cart-layout">
+                    <!-- Cart Items -->
+                    <div class="cart-items-container">
+                        <div id="cartItems">
+                            <!-- Cart items will be rendered here by cart.js -->
+                        </div>
+                    </div>
+                    
+                    <!-- Cart Summary -->
+                    <div class="cart-summary-container">
+                        <div class="cart-summary-card">
+                            <h2>Order Summary</h2>
+                            <div id="cartSummary">
+                                <!-- Cart summary will be rendered here by cart.js -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>☕ Caffeine Corner</h3>
+                    <p>Premium coffee blends delivered to your doorstep.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#products">Products</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>📧 info@caffeinecorner.com</p>
+                    <p>📞 1-800-COFFEE</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Caffeine Corner. All rights reserved. | Group 11</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize cart page when DOM loads
+        document.addEventListener('DOMContentLoaded', () => {
+            initCart();
+            renderCartPage();
+        });
+
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
+
