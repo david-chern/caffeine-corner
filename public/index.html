@@ -5,65 +5,481 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caffeine Corner ☕ - Premium Coffee & Energy Drinks</title>
     <link rel="stylesheet" href="style.css">
+    <script src="js/cart.js" defer></script>
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
                 <h1>☕ Caffeine Corner</h1>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#about">About</a></li>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#products" class="nav-link">Products</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#auth" class="auth-link">Login / Register</a></li>
+                <li>
+                    <a href="cart.html" class="cart-icon" title="Shopping Cart">
+                        <span class="cart-badge" style="display: none;">0</span>
+                        🛒
+                    </a>
+                </li>
             </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
     <main>
-        <!-- Hero Section -->
+        <!-- Hero Section with Background Image -->
         <section id="home" class="hero">
-            <div class="hero-content">
-                <h2>Discover Premium Coffee Blends</h2>
+            <div class="hero-overlay"></div>
+            <div class="hero-content fade-in">
+                <h1>Discover Premium Coffee</h1>
                 <p>From artisan-roasted beans to specialty blends, we bring the world's finest coffee to your doorstep</p>
                 <a href="#products" class="cta-button">Shop Now</a>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="why-choose-section">
+            <div class="container">
+                <h2 class="section-title fade-in">Why Choose Caffeine Corner?</h2>
+                <div class="features-grid">
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">🌍</div>
+                        <h3>Global Sourcing</h3>
+                        <p>Premium beans sourced from the finest coffee regions worldwide</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">🔥</div>
+                        <h3>Artisan Roasted</h3>
+                        <p>Expertly roasted to perfection by master roasters</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">📦</div>
+                        <h3>Fresh Delivery</h3>
+                        <p>Direct to your doorstep, always fresh and aromatic</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">☕</div>
+                        <h3>Custom Grind</h3>
+                        <p>Choose your perfect grind size for any brewing method</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Featured Products Section -->
         <section id="products" class="products-section">
             <div class="container">
-                <h2 class="section-title">Featured Products</h2>
-                <div class="products-grid" id="productsGrid">
-                    <!-- Products will be loaded here dynamically -->
-                    <div class="product-card">
-                        <div class="product-image">☕</div>
-                        <h3>Ethiopian Yirgacheffe</h3>
-                        <p class="product-description">Bright and floral with notes of citrus and jasmine</p>
-                        <p class="product-price">$18.99</p>
-                        <button class="product-btn">Add to Cart</button>
+                <h2 class="section-title fade-in">Featured Products</h2>
+                <div class="free-shipping-banner fade-in" style="max-width: 600px; margin: 0 auto 40px;">
+                    🚚 <strong>Free Shipping</strong> on orders over $50!
+                </div>
+                <div class="products-grid">
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=ethiopian-yirgacheffe" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=400&fit=crop" alt="Ethiopian Yirgacheffe" class="product-image" loading="lazy">
+                                <div class="product-badge">Featured</div>
+                            </div>
+                            <div class="product-card-content">
+                                <h3>Ethiopian Yirgacheffe</h3>
+                                <p class="product-description">Bright and floral with notes of citrus and jasmine. Single-origin beans from Ethiopia.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">🇪🇹 Ethiopia</span>
+                                    <span class="product-roast">Light Roast</span>
+                                </div>
+                                <p class="product-price">$18.99</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('ethiopian-yirgacheffe', 'Ethiopian Yirgacheffe', 18.99, 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=400&fit=crop'); return false;">Add to Cart</button>
                     </div>
-                    <div class="product-card">
-                        <div class="product-image">☕</div>
-                        <h3>Colombian Supremo</h3>
-                        <p class="product-description">Smooth and well-balanced with caramel notes</p>
-                        <p class="product-price">$16.99</p>
-                        <button class="product-btn">Add to Cart</button>
+
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=colombian-supremo" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=400&h=400&fit=crop" alt="Colombian Supremo" class="product-image" loading="lazy">
+                            </div>
+                            <div class="product-card-content">
+                                <h3>Colombian Supremo</h3>
+                                <p class="product-description">Smooth and well-balanced with notes of caramel and nuts. Medium roast perfection.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">🇨🇴 Colombia</span>
+                                    <span class="product-roast">Medium Roast</span>
+                                </div>
+                                <p class="product-price">$16.99</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('colombian-supremo', 'Colombian Supremo', 16.99, 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=400&h=400&fit=crop'); return false;">Add to Cart</button>
                     </div>
-                    <div class="product-card">
-                        <div class="product-image">☕</div>
-                        <h3>Dark Roast Espresso</h3>
-                        <p class="product-description">Bold and rich with dark chocolate notes</p>
-                        <p class="product-price">$19.99</p>
-                        <button class="product-btn">Add to Cart</button>
+
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=dark-roast-espresso" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400&h=400&fit=crop" alt="Dark Roast Espresso" class="product-image" loading="lazy">
+                                <div class="product-badge">Popular</div>
+                            </div>
+                            <div class="product-card-content">
+                                <h3>Dark Roast Espresso</h3>
+                                <p class="product-description">Bold and rich with dark chocolate notes. Perfect for espresso lovers.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">🇧🇷 Brazil</span>
+                                    <span class="product-roast">Dark Roast</span>
+                                </div>
+                                <p class="product-price">$19.99</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('dark-roast-espresso', 'Dark Roast Espresso', 19.99, 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400&h=400&fit=crop'); return false;">Add to Cart</button>
                     </div>
-                    <div class="product-card">
-                        <div class="product-image">☕</div>
-                        <h3>House Blend Premium</h3>
-                        <p class="product-description">Our signature blend - smooth and versatile</p>
-                        <p class="product-price">$17.99</p>
-                        <button class="product-btn">Add to Cart</button>
+
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=house-blend-premium" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=400&fit=crop&q=80" alt="House Blend Premium" class="product-image" loading="lazy">
+                            </div>
+                            <div class="product-card-content">
+                                <h3>House Blend Premium</h3>
+                                <p class="product-description">Our signature blend combining beans from three continents. Smooth and versatile.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">🌍 Multi-Origin</span>
+                                    <span class="product-roast">Medium Roast</span>
+                                </div>
+                                <p class="product-price">$17.99</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('house-blend-premium', 'House Blend Premium', 17.99, 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=400&fit=crop&q=80'); return false;">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=costa-rican-tarrazu" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=400&h=400&fit=crop" alt="Costa Rican Tarrazu" class="product-image" loading="lazy">
+                            </div>
+                            <div class="product-card-content">
+                                <h3>Costa Rican Tarrazu</h3>
+                                <p class="product-description">Clean and bright with honey-like sweetness. Perfect for pour-over brewing.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">🇨🇷 Costa Rica</span>
+                                    <span class="product-roast">Light Roast</span>
+                                </div>
+                                <p class="product-price">$20.99</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('costa-rican-tarrazu', 'Costa Rican Tarrazu', 20.99, 'https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=400&h=400&fit=crop'); return false;">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=guatemalan-green-beans" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=400&h=400&fit=crop" alt="Green Coffee Beans" class="product-image" loading="lazy">
+                            </div>
+                            <div class="product-card-content">
+                                <h3>Guatemalan Green Beans</h3>
+                                <p class="product-description">Raw, unroasted coffee beans for home roasters. High-quality single-origin beans.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">🇬🇹 Guatemala</span>
+                                    <span class="product-roast">Unroasted</span>
+                                </div>
+                                <p class="product-price">$14.99</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('guatemalan-green-beans', 'Guatemalan Green Beans', 14.99, 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=400&h=400&fit=crop'); return false;">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=italian-espresso-roast" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400&h=400&fit=crop&q=80" alt="Italian Espresso Roast" class="product-image" loading="lazy">
+                            </div>
+                            <div class="product-card-content">
+                                <h3>Italian Espresso Roast</h3>
+                                <p class="product-description">Traditional Italian-style espresso roast. Intense and full-bodied.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">🇮🇹 Italy</span>
+                                    <span class="product-roast">Dark Roast</span>
+                                </div>
+                                <p class="product-price">$18.49</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('italian-espresso-roast', 'Italian Espresso Roast', 18.49, 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400&h=400&fit=crop&q=80'); return false;">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=sumatra-mandheling" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&h=400&fit=crop" alt="Sumatra Mandheling" class="product-image" loading="lazy">
+                                <div class="product-badge">Featured</div>
+                            </div>
+                            <div class="product-card-content">
+                                <h3>Sumatra Mandheling</h3>
+                                <p class="product-description">Full-bodied and earthy with low acidity. Deep, rich flavors with hints of dark chocolate and spice.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">🇮🇩 Indonesia</span>
+                                    <span class="product-roast">Dark Roast</span>
+                                </div>
+                                <p class="product-price">$19.99</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('sumatra-mandheling', 'Sumatra Mandheling', 19.99, 'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&h=400&fit=crop'); return false;">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=kenyan-aa" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=400&fit=crop" alt="Kenyan AA" class="product-image" loading="lazy">
+                                <div class="product-badge">Featured</div>
+                            </div>
+                            <div class="product-card-content">
+                                <h3>Kenyan AA</h3>
+                                <p class="product-description">Bright and wine-like with complex berry notes. Highly sought after single-origin coffee.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">🇰🇪 Kenya</span>
+                                    <span class="product-roast">Medium Roast</span>
+                                </div>
+                                <p class="product-price">$22.99</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('kenyan-aa', 'Kenyan AA', 22.99, 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=400&fit=crop'); return false;">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=hawaiian-kona" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=400&fit=crop" alt="Hawaiian Kona" class="product-image" loading="lazy">
+                                <div class="product-badge">Premium</div>
+                            </div>
+                            <div class="product-card-content">
+                                <h3>Hawaiian Kona</h3>
+                                <p class="product-description">Smooth and mild with delicate floral notes. One of the world's most prized coffees.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">🇺🇸 Hawaii</span>
+                                    <span class="product-roast">Medium Roast</span>
+                                </div>
+                                <p class="product-price">$34.99</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('hawaiian-kona', 'Hawaiian Kona', 34.99, 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=400&fit=crop'); return false;">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=french-vanilla-blend" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400&h=400&fit=crop" alt="French Vanilla Blend" class="product-image" loading="lazy">
+                            </div>
+                            <div class="product-card-content">
+                                <h3>French Vanilla Blend</h3>
+                                <p class="product-description">Smooth medium roast with natural vanilla flavoring. Perfect for those who enjoy flavored coffees.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">🌍 Multi-Origin</span>
+                                    <span class="product-roast">Medium Roast</span>
+                                </div>
+                                <p class="product-price">$16.99</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('french-vanilla-blend', 'French Vanilla Blend', 16.99, 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400&h=400&fit=crop'); return false;">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=hazelnut-creme" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&h=400&fit=crop" alt="Hazelnut Crème" class="product-image" loading="lazy">
+                            </div>
+                            <div class="product-card-content">
+                                <h3>Hazelnut Crème</h3>
+                                <p class="product-description">Rich medium-dark roast with natural hazelnut flavor. A customer favorite for its nutty sweetness.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">🌍 Multi-Origin</span>
+                                    <span class="product-roast">Medium Roast</span>
+                                </div>
+                                <p class="product-price">$17.49</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('hazelnut-creme', 'Hazelnut Crème', 17.49, 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&h=400&fit=crop'); return false;">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=decaf-colombian" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=400&fit=crop" alt="Decaf Colombian" class="product-image" loading="lazy">
+                            </div>
+                            <div class="product-card-content">
+                                <h3>Decaf Colombian</h3>
+                                <p class="product-description">Smooth and balanced decaffeinated coffee. Swiss water processed to preserve flavor without chemicals.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">🇨🇴 Colombia</span>
+                                    <span class="product-roast">Medium Roast</span>
+                                </div>
+                                <p class="product-price">$18.99</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('decaf-colombian', 'Decaf Colombian', 18.99, 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=400&fit=crop'); return false;">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=jamaican-blue-mountain" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=400&fit=crop" alt="Jamaican Blue Mountain" class="product-image" loading="lazy">
+                                <div class="product-badge">Premium</div>
+                            </div>
+                            <div class="product-card-content">
+                                <h3>Jamaican Blue Mountain</h3>
+                                <p class="product-description">Legendary coffee known for its mild flavor and lack of bitterness. Smooth, sweet, and balanced.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">🇯🇲 Jamaica</span>
+                                    <span class="product-roast">Medium Roast</span>
+                                </div>
+                                <p class="product-price">$49.99</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('jamaican-blue-mountain', 'Jamaican Blue Mountain', 49.99, 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=400&fit=crop'); return false;">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=peruvian-organic" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&h=400&fit=crop&q=80" alt="Peruvian Organic" class="product-image" loading="lazy">
+                            </div>
+                            <div class="product-card-content">
+                                <h3>Peruvian Organic</h3>
+                                <p class="product-description">Certified organic single-origin coffee. Bright acidity with notes of chocolate and nuts.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">🇵🇪 Peru</span>
+                                    <span class="product-roast">Medium Roast</span>
+                                </div>
+                                <p class="product-price">$19.49</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('peruvian-organic', 'Peruvian Organic', 19.49, 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&h=400&fit=crop&q=80'); return false;">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=espresso-blend-deluxe" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=400&fit=crop" alt="Espresso Blend Deluxe" class="product-image" loading="lazy">
+                                <div class="product-badge">Featured</div>
+                            </div>
+                            <div class="product-card-content">
+                                <h3>Espresso Blend Deluxe</h3>
+                                <p class="product-description">Our premium espresso blend combining South American and African beans. Perfect for cappuccinos and lattes.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">🌍 Multi-Origin</span>
+                                    <span class="product-roast">Dark Roast</span>
+                                </div>
+                                <p class="product-price">$21.99</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('espresso-blend-deluxe', 'Espresso Blend Deluxe', 21.99, 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=400&fit=crop'); return false;">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=vietnamese-robusta" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=400&fit=crop" alt="Vietnamese Robusta" class="product-image" loading="lazy">
+                            </div>
+                            <div class="product-card-content">
+                                <h3>Vietnamese Robusta</h3>
+                                <p class="product-description">Strong and bold Vietnamese coffee with traditional dark roast. Perfect for Vietnamese iced coffee.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">🇻🇳 Vietnam</span>
+                                    <span class="product-roast">Dark Roast</span>
+                                </div>
+                                <p class="product-price">$15.99</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('vietnamese-robusta', 'Vietnamese Robusta', 15.99, 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&h=400&fit=crop'); return false;">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=breakfast-blend" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&h=400&fit=crop" alt="Breakfast Blend" class="product-image" loading="lazy">
+                            </div>
+                            <div class="product-card-content">
+                                <h3>Breakfast Blend</h3>
+                                <p class="product-description">Light and smooth morning blend. Designed to start your day right with balanced flavor.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">🌍 Multi-Origin</span>
+                                    <span class="product-roast">Light Roast</span>
+                                </div>
+                                <p class="product-price">$16.49</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('breakfast-blend', 'Breakfast Blend', 16.49, 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400&h=400&fit=crop'); return false;">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=ethiopian-green-beans" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=400&h=400&fit=crop" alt="Ethiopian Green Beans" class="product-image" loading="lazy">
+                            </div>
+                            <div class="product-card-content">
+                                <h3>Ethiopian Green Beans</h3>
+                                <p class="product-description">Premium unroasted Ethiopian beans for home roasters. Experience the joy of roasting your own coffee.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">🇪🇹 Ethiopia</span>
+                                    <span class="product-roast">Unroasted</span>
+                                </div>
+                                <p class="product-price">$16.99</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('ethiopian-green-beans', 'Ethiopian Green Beans', 16.99, 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=400&h=400&fit=crop'); return false;">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card fade-in">
+                        <a href="product.html?id=energy-boost-drink" class="product-card-link">
+                            <div class="product-image-container">
+                                <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=400&fit=crop&q=80" alt="Energy Boost Drink" class="product-image" loading="lazy">
+                            </div>
+                            <div class="product-card-content">
+                                <h3>Energy Boost Drink</h3>
+                                <p class="product-description">Natural energy drink with green tea extract and B-vitamins. No artificial sweeteners.</p>
+                                <div class="product-meta">
+                                    <span class="product-origin">⚡ Natural</span>
+                                    <span class="product-roast">Energy Drink</span>
+                                </div>
+                                <p class="product-price">$3.99</p>
+                            </div>
+                        </a>
+                        <button class="product-btn" onclick="event.stopPropagation(); addToCart('energy-boost-drink', 'Energy Boost Drink', 3.99, 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=400&fit=crop&q=80'); return false;">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Reviews Section -->
+        <section class="reviews-section">
+            <div class="container">
+                <h2 class="section-title fade-in">What Our Customers Say</h2>
+                <div class="reviews-grid">
+                    <div class="review-card fade-in">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"The Ethiopian Yirgacheffe is absolutely amazing! The floral notes are perfect for my morning cup."</p>
+                        <div class="review-author">
+                            <strong>Sarah M.</strong>
+                            <span>Verified Customer</span>
+                        </div>
+                    </div>
+                    <div class="review-card fade-in">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Best coffee subscription I've ever tried. Fresh, aromatic, and always perfectly roasted!"</p>
+                        <div class="review-author">
+                            <strong>John D.</strong>
+                            <span>Verified Customer</span>
+                        </div>
+                    </div>
+                    <div class="review-card fade-in">
+                        <div class="review-stars">★★★★☆</div>
+                        <p class="review-text">"The Colombian Supremo is my daily driver. Smooth, balanced, and always delivers!"</p>
+                        <div class="review-author">
+                            <strong>Maria L.</strong>
+                            <span>Verified Customer</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -72,8 +488,8 @@
         <!-- About Section -->
         <section id="about" class="about-section">
             <div class="container">
-                <h2 class="section-title">About Caffeine Corner</h2>
-                <div class="about-content">
+                <h2 class="section-title fade-in">About Caffeine Corner</h2>
+                <div class="about-content fade-in">
                     <p>
                         Welcome to Caffeine Corner, your destination for premium coffee blends. 
                         We source the finest coffee beans from around the world and craft unique 
@@ -85,24 +501,6 @@
                         with ease. Join our community of coffee lovers and discover your next 
                         favorite brew!
                     </p>
-                    <div class="features-grid">
-                        <div class="feature-item">
-                            <h3>🌍 Global Sourcing</h3>
-                            <p>Premium beans from around the world</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>🔥 Artisan Roasted</h3>
-                            <p>Expertly roasted to perfection</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>📦 Fresh Delivery</h3>
-                            <p>Direct to your doorstep</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>☕ Custom Grind</h3>
-                            <p>Choose your perfect grind size</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -158,13 +556,64 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Caffeine Corner. All rights reserved. | Group 11</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>☕ Caffeine Corner</h3>
+                    <p>Premium coffee blends delivered to your doorstep. Discover the world's finest coffee with us.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#auth">Login / Register</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>📧 info@caffeinecorner.com</p>
+                    <p>📞 1-800-COFFEE</p>
+                    <p>📍 123 Coffee Street, Seattle, WA</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Caffeine Corner. All rights reserved. | Group 11</p>
+            </div>
         </div>
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Login/Register form toggle
         function showLogin() {
             document.getElementById('loginForm').style.display = 'block';
             document.getElementById('registerForm').style.display = 'none';
@@ -185,10 +634,28 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
+
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Cart icon already links to cart.html, no additional handler needed
     </script>
 </body>
 </html>
