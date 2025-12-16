@@ -298,14 +298,31 @@
 }
 
 /* Responsive Design */
+/* Tablet and below */
 @media (max-width: 968px) {
+    .breadcrumb-section {
+        padding: 90px 0 15px;
+    }
+
+    .product-detail-section {
+        padding: 30px 0 60px;
+    }
+
+    .product-detail-container {
+        padding: 0 15px;
+    }
+
     .product-detail-wrapper {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 35px;
     }
 
     .product-detail-image {
         position: static;
+    }
+
+    .product-detail-image img {
+        border-radius: 15px;
     }
 
     .product-detail-title {
@@ -315,11 +332,50 @@
     .product-price-large {
         font-size: 2em;
     }
+
+    .product-description-full h3,
+    .product-flavors h3,
+    .product-grind-options h3 {
+        font-size: 1.4em;
+    }
 }
 
+/* Mobile and small tablets */
 @media (max-width: 768px) {
+    .breadcrumb-section {
+        padding: 80px 0 15px;
+    }
+
+    .breadcrumb {
+        font-size: 0.9em;
+        padding: 0 15px;
+    }
+
+    .product-detail-section {
+        padding: 25px 0 50px;
+    }
+
+    .product-detail-container {
+        padding: 0 15px;
+    }
+
+    .product-detail-wrapper {
+        gap: 30px;
+    }
+
+    .product-category-badge {
+        padding: 6px 16px;
+        font-size: 0.85em;
+    }
+
     .product-detail-title {
         font-size: 1.8em;
+        line-height: 1.3;
+    }
+
+    .product-origin-info,
+    .product-roast-info {
+        font-size: 1em;
     }
 
     .product-price-large {
@@ -332,9 +388,146 @@
         padding-top: 15px;
     }
 
+    .product-description-full h3,
+    .product-flavors h3,
+    .product-grind-options h3 {
+        font-size: 1.3em;
+        margin-bottom: 12px;
+    }
+
+    .product-description-full p {
+        font-size: 1em;
+        line-height: 1.7;
+    }
+
+    .flavor-tag {
+        padding: 6px 14px;
+        font-size: 0.9em;
+    }
+
+    .grind-option-label {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .product-actions {
+        padding-top: 25px;
+    }
+
     .add-to-cart-large {
         font-size: 1.1em;
         padding: 16px;
+    }
+
+    .back-to-products-btn {
+        font-size: 0.95em;
+    }
+
+    .recommended-section {
+        padding: 50px 0;
+    }
+
+    .recommended-section .section-title {
+        font-size: 2em;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .breadcrumb-section {
+        padding: 70px 0 12px;
+    }
+
+    .breadcrumb {
+        font-size: 0.85em;
+        padding: 0 10px;
+    }
+
+    .product-detail-section {
+        padding: 20px 0 40px;
+    }
+
+    .product-detail-container {
+        padding: 0 10px;
+    }
+
+    .product-detail-wrapper {
+        gap: 25px;
+    }
+
+    .product-category-badge {
+        padding: 5px 14px;
+        font-size: 0.8em;
+    }
+
+    .product-detail-title {
+        font-size: 1.6em;
+    }
+
+    .product-origin-info,
+    .product-roast-info {
+        font-size: 0.95em;
+        flex-wrap: wrap;
+    }
+
+    .product-price-large {
+        font-size: 1.6em;
+    }
+
+    .product-description-full h3,
+    .product-flavors h3,
+    .product-grind-options h3 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    .product-description-full p {
+        font-size: 0.95em;
+    }
+
+    .flavor-tags {
+        gap: 8px;
+    }
+
+    .flavor-tag {
+        padding: 5px 12px;
+        font-size: 0.85em;
+    }
+
+    .grind-options-selector {
+        gap: 10px;
+    }
+
+    .grind-option-label {
+        padding: 9px 16px;
+        font-size: 0.85em;
+    }
+
+    .grind-note {
+        font-size: 0.85em;
+    }
+
+    .product-actions {
+        padding-top: 20px;
+        gap: 12px;
+    }
+
+    .add-to-cart-large {
+        font-size: 1em;
+        padding: 14px;
+    }
+
+    .back-to-products-btn {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+
+    .recommended-section {
+        padding: 40px 0;
+    }
+
+    .recommended-section .section-title {
+        font-size: 1.8em;
     }
 }
 
