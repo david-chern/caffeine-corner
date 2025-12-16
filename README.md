@@ -6,38 +6,50 @@
 [![Express](https://img.shields.io/badge/Express-4.18-blue.svg)](https://expressjs.com/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-brightgreen.svg)](https://www.mongodb.com/)
 [![License](https://img.shields.io/badge/License-ISC-yellow.svg)](LICENSE)
+[![Responsive](https://img.shields.io/badge/Responsive-Mobile%20Friendly-success.svg)]()
 
 ---
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Technology Stack](#technology-stack)
-- [Getting Started](#getting-started)
+- [Overview](#-overview)
+- [Features](#-features)
+- [Technology Stack](#-technology-stack)
+- [Getting Started](#-getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Environment Setup](#environment-setup)
   - [Running the Application](#running-the-application)
-- [Project Structure](#project-structure)
-- [Database Schema](#database-schema)
-- [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [Team Members](#team-members)
+- [Project Structure](#-project-structure)
+- [API Documentation](#-api-documentation)
+- [Database Schema](#-database-schema)
+- [Authentication & Security](#-authentication--security)
+- [Responsive Design](#-responsive-design)
+- [Contributing](#-contributing)
+- [Team Members](#-team-members)
+- [License](#-license)
 
 ---
 
 ## 🎯 Overview
 
-**Caffeine Corner** is a modern e-commerce platform designed for coffee enthusiasts to discover, customize, and purchase premium coffee products. We offer a comprehensive selection of coffee beans, roasted and non-roasted varieties, specialty blends, and energy drinks.
+**Caffeine Corner** is a modern, full-stack e-commerce platform designed for coffee enthusiasts to discover, customize, and purchase premium coffee products. Built with Node.js, Express.js, and MongoDB, the platform offers a seamless shopping experience with user authentication, secure payment processing, and comprehensive account management.
 
-Our mission is to bring the finest coffee experience to your doorstep, allowing customers to browse different blends, learn about our roasting process, and order their favorite products online with ease.
+### Key Highlights
+
+- 🛍️ **Complete E-Commerce Solution** - Browse, cart, checkout, and order management
+- 🔐 **Secure Authentication** - JWT-based user authentication with password hashing
+- 📱 **Fully Responsive** - Mobile-first design that works on all devices
+- ☕ **Premium Products** - 20+ coffee products with detailed information
+- 💳 **Payment Integration** - Support for credit/debit cards and PayPal
+- 👤 **User Accounts** - Profile management, address management, and order history
 
 ---
 
 ## ✨ Features
 
 ### 🛍️ Product Catalog
+
 - **20+ Premium Products** - Extensive selection of coffee and beverages
 - **Roasted Coffee** - Artisan-roasted blends with detailed flavor profiles and roast levels (Light, Medium, Dark)
 - **Green Coffee Beans** - Unroasted beans for home roasting enthusiasts  
@@ -45,45 +57,75 @@ Our mission is to bring the finest coffee experience to your doorstep, allowing 
 - **Energy Drinks** - Premium energy drink selection
 - **Product Details** - Origin information, tasting notes, and brewing recommendations
 - **Grind Options** - Customizable grind settings (Whole Bean, Coarse, Medium, Fine, Espresso)
+- **Product Images** - High-quality product images with responsive display
 
 ### 👥 Customer Experience
+
 - **Browse & Discover** - Explore products by origin, roast level, flavor profile, and price
 - **Product Details** - Detailed product pages with images, descriptions, and flavor profiles
 - **Shopping Cart** - Add items to cart with grind option selection, quantity management, and real-time totals
-- **Free Shipping** - Free shipping on orders over $50
+- **Free Shipping** - Free shipping on orders over $50 with progress indicator
 - **Checkout Process** - Secure checkout with shipping information and payment method selection
+- **Payment Forms** - Dynamic payment forms for credit/debit cards and PayPal
 - **Order Management** - Complete order processing with order confirmation and tracking
 - **Recommended Products** - "You May Also Like" suggestions on product detail pages
-- **Responsive Design** - Mobile-friendly interface for shopping on any device
 
-### 🚀 Future Enhancements
-- **Subscription Service** - Monthly coffee subscription boxes with personalized selections
-- **Coffee Quiz** - Interactive quiz to recommend the perfect coffee based on taste preferences
-- **Brewing Guides** - Step-by-step guides for different brewing methods (espresso, pour-over, French press)
-- **Community Reviews** - Customer reviews and ratings for products
-- **Loyalty Program** - Points system and rewards for frequent customers
-- **Gift Options** - Gift cards and curated gift sets
-- **Mobile App** - iOS and Android app for convenient mobile shopping
+### 🔐 User Authentication & Account Management
+
+- **User Registration** - Secure account creation with email validation
+- **User Login** - JWT-based authentication with session management
+- **Account Dashboard** - Beautiful modal dashboard with quick access to account features
+- **Profile Management** - View and edit personal information (name, email)
+- **Address Management** - Add, edit, and delete multiple shipping addresses
+- **Password Management** - Secure password change functionality
+- **Order History** - View past orders (placeholder for future implementation)
+- **Session Persistence** - Stay logged in across page refreshes
+
+### 📱 Responsive Design
+
+- **Mobile-First Approach** - Optimized for mobile devices
+- **Responsive Breakpoints** - Desktop (968px+), Tablet (768px-968px), Mobile (480px-768px), Small Mobile (<480px)
+- **Hamburger Menu** - Mobile-friendly navigation menu
+- **Touch-Friendly** - All buttons and interactive elements optimized for touch
+- **iOS Optimization** - Prevents zoom on input focus (16px font size)
+- **Flexible Layouts** - Grid systems that adapt to screen size
+- **Responsive Images** - Images that scale properly on all devices
+
+### 🎨 User Interface
+
+- **Modern Design** - Coffee-themed color palette and styling
+- **Smooth Animations** - Fade-in effects and transitions
+- **Interactive Elements** - Hover effects and visual feedback
+- **Loading States** - User-friendly loading indicators
+- **Error Handling** - Clear error messages and validation feedback
+- **Success Messages** - Confirmation messages for user actions
 
 ---
 
 ## 🛠️ Technology Stack
 
 ### Backend
-- **Node.js** - JavaScript runtime environment
-- **Express.js** - Web application framework
-- **MongoDB** - NoSQL database with MongoDB Atlas (cloud)
-- **Mongoose** - MongoDB object modeling for Node.js
-- **dotenv** - Environment variable management
+
+- **Node.js** (v18+) - JavaScript runtime environment
+- **Express.js** (v4.18) - Web application framework
+- **MongoDB Atlas** - Cloud-hosted NoSQL database
+- **Mongoose** (v8.0) - MongoDB object modeling for Node.js
+- **bcryptjs** (v3.0) - Password hashing and encryption
+- **jsonwebtoken** (v9.0) - JWT token generation and verification
+- **dotenv** (v16.3) - Environment variable management
 
 ### Frontend
+
 - **HTML5** - Semantic markup
-- **CSS3** - Modern styling with coffee-themed design
-- **JavaScript** - Client-side interactivity
+- **CSS3** - Modern styling with coffee-themed design, responsive media queries
+- **JavaScript (ES6+)** - Client-side interactivity, async/await, localStorage
+- **Responsive CSS** - Mobile-first design with flexible layouts
 
 ### Development Tools
-- **Nodemon** - Automatic server restart during development
+
+- **Nodemon** (v3.0) - Automatic server restart during development
 - **Git** - Version control
+- **MongoDB Atlas** - Cloud database hosting
 
 ---
 
@@ -93,7 +135,7 @@ Our mission is to bring the finest coffee experience to your doorstep, allowing 
 
 Before you begin, ensure you have the following installed:
 
-- **Node.js** (v14 or higher) - [Download](https://nodejs.org/)
+- **Node.js** (v18 or higher) - [Download](https://nodejs.org/)
 - **npm** (Node Package Manager) - Comes with Node.js
 - **MongoDB Atlas Account** (Free tier available) - [Sign Up](https://www.mongodb.com/cloud/atlas)
 - **Git** - [Download](https://git-scm.com/)
@@ -108,19 +150,15 @@ Before you begin, ensure you have the following installed:
 
 2. **Install dependencies**
    
-   If you encounter npm cache permission issues, use:
-   ```bash
-   npm install --cache /tmp/.npm-cache
-   ```
-   
-   Otherwise, simply run:
    ```bash
    npm install
    ```
-
+   
    This will install:
    - `express` - Web framework
    - `mongoose` - MongoDB ODM
+   - `bcryptjs` - Password hashing
+   - `jsonwebtoken` - JWT authentication
    - `dotenv` - Environment variables
    - `nodemon` - Development tool (dev dependency)
 
@@ -136,6 +174,9 @@ Before you begin, ensure you have the following installed:
    # MongoDB Atlas Connection String
    MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/caffeine-corner?retryWrites=true&w=majority
    
+   # JWT Secret Key (change this in production!)
+   JWT_SECRET=your-secret-key-change-in-production
+   
    # Server Port (optional, defaults to 3000)
    PORT=3000
    ```
@@ -146,6 +187,7 @@ Before you begin, ensure you have the following installed:
    - Click "Connect" → "Connect your application"
    - Copy the connection string and replace `<password>` with your database password
    - Replace `caffeine-corner` with your preferred database name
+   - **Important:** Add your IP address to the Network Access whitelist in MongoDB Atlas
 
 ### Running the Application
 
@@ -182,6 +224,10 @@ This will create:
 
 **Note:** Running the seed script will clear all existing data in the database.
 
+**Default Admin Credentials:**
+- Email: `admin@caffeinecorner.com`
+- Password: `admin123`
+
 ---
 
 ## 📁 Project Structure
@@ -199,23 +245,286 @@ caffeine-corner/
 ├── utils/
 │   └── dbHelpers.js         # Database helper functions
 ├── public/
-│   ├── index.html           # Main landing page (e-commerce design)
+│   ├── index.html           # Main landing page
 │   ├── cart.html            # Shopping cart page
 │   ├── checkout.html        # Checkout page
 │   ├── product.html         # Product detail page
-│   ├── style.css            # Coffee-themed styling
+│   ├── account.html         # User account management page
+│   ├── style.css            # Main stylesheet (responsive)
 │   ├── cart.css             # Cart and checkout styling
 │   ├── product-detail.css   # Product detail page styling
+│   ├── account.css          # Account page styling
 │   └── js/
-│       ├── cart.js          # Cart functionality (localStorage)
-│       └── product.js       # Product detail functionality
+│       ├── auth.js          # Authentication logic (login, register, logout)
+│       ├── account.js       # Account management functionality
+│       ├── cart.js          # Shopping cart functionality
+│       ├── checkout.js      # Checkout and payment processing
+│       ├── product.js       # Product detail functionality
+│       └── navigation.js    # Mobile menu navigation
 ├── .env                     # Environment variables (not in git)
 ├── .gitignore               # Git ignore rules
 ├── package.json             # Project dependencies and scripts
 ├── server.js                # Express server entry point
 ├── DATABASE_SCHEMA.md       # Detailed database schema documentation
-└── README.md                # Project documentation
+├── DATABASE_SETUP.md        # Database setup guide
+├── DEMO_GUIDE.md            # Demo guide for presentations
+└── README.md                # Project documentation (this file)
 ```
+
+---
+
+## 📡 API Documentation
+
+### Authentication Endpoints
+
+#### `POST /api/auth/register`
+Register a new user account.
+
+**Request Body:**
+```json
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "password123",
+  "confirmPassword": "password123"
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "User registered successfully",
+  "token": "jwt_token_here",
+  "user": {
+    "id": "user_id",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "role": "customer"
+  }
+}
+```
+
+#### `POST /api/auth/login`
+Login with email and password.
+
+**Request Body:**
+```json
+{
+  "email": "john@example.com",
+  "password": "password123"
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Login successful",
+  "token": "jwt_token_here",
+  "user": {
+    "id": "user_id",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "role": "customer"
+  }
+}
+```
+
+#### `GET /api/auth/me`
+Get current user information (Protected route - requires JWT token).
+
+**Headers:**
+```
+Authorization: Bearer <jwt_token>
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "user": {
+    "id": "user_id",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "role": "customer",
+    "addresses": []
+  }
+}
+```
+
+#### `PUT /api/auth/me`
+Update current user information (Protected route).
+
+**Headers:**
+```
+Authorization: Bearer <jwt_token>
+```
+
+**Request Body:**
+```json
+{
+  "name": "John Updated",
+  "email": "newemail@example.com",
+  "addresses": [
+    {
+      "street": "123 Main St",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "10001",
+      "country": "USA"
+    }
+  ]
+}
+```
+
+#### `POST /api/auth/change-password`
+Change user password (Protected route).
+
+**Headers:**
+```
+Authorization: Bearer <jwt_token>
+```
+
+**Request Body:**
+```json
+{
+  "currentPassword": "oldpassword123",
+  "newPassword": "newpassword123"
+}
+```
+
+### Product Endpoints
+
+#### `GET /api/products`
+Get all products.
+
+**Response:**
+```json
+{
+  "success": true,
+  "products": [
+    {
+      "_id": "product_id",
+      "name": "Ethiopian Yirgacheffe",
+      "description": "Light roast with floral notes",
+      "category": "roasted-coffee",
+      "price": 18.99,
+      "images": ["image_url"],
+      "origin": "Ethiopia",
+      "roastLevel": "light",
+      "flavorProfile": ["floral", "citrus"],
+      "stock": 100,
+      "grindOptions": ["Whole Bean", "Coarse", "Medium", "Fine"]
+    }
+  ]
+}
+```
+
+#### `GET /api/products/:id`
+Get a single product by ID.
+
+**Response:**
+```json
+{
+  "success": true,
+  "product": {
+    "_id": "product_id",
+    "name": "Ethiopian Yirgacheffe",
+    "description": "Light roast with floral notes",
+    "category": "roasted-coffee",
+    "price": 18.99,
+    "images": ["image_url"],
+    "origin": "Ethiopia",
+    "roastLevel": "light",
+    "flavorProfile": ["floral", "citrus"],
+    "stock": 100,
+    "grindOptions": ["Whole Bean", "Coarse", "Medium", "Fine"]
+  }
+}
+```
+
+### Order Endpoints
+
+#### `POST /api/checkout`
+Process checkout and create an order.
+
+**Request Body:**
+```json
+{
+  "items": [
+    {
+      "productId": "product_id",
+      "quantity": 2,
+      "price": 18.99,
+      "grindOption": "Whole Bean"
+    }
+  ],
+  "shippingAddress": {
+    "street": "123 Main St",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10001",
+    "country": "USA"
+  },
+  "paymentMethod": "credit-card",
+  "paymentDetails": {
+    "cardholderName": "John Doe",
+    "cardNumber": "4111111111111111",
+    "expirationDate": "12/25",
+    "cvv": "123",
+    "billingZip": "10001"
+  }
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Order placed successfully",
+  "order": {
+    "_id": "order_id",
+    "user": "user_id",
+    "items": [...],
+    "subtotal": 37.98,
+    "shipping": 0,
+    "tax": 3.04,
+    "total": 41.02,
+    "status": "pending",
+    "createdAt": "2025-01-XX"
+  }
+}
+```
+
+#### `GET /api/orders/:orderId`
+Get order details by ID.
+
+**Response:**
+```json
+{
+  "success": true,
+  "order": {
+    "_id": "order_id",
+    "user": "user_id",
+    "items": [...],
+    "subtotal": 37.98,
+    "shipping": 0,
+    "tax": 3.04,
+    "total": 41.02,
+    "status": "pending",
+    "createdAt": "2025-01-XX"
+  }
+}
+```
+
+### Frontend Routes
+
+- `GET /` - Serves the main landing page (`index.html`)
+- `GET /cart.html` - Shopping cart page
+- `GET /checkout.html` - Checkout page
+- `GET /product.html?id=<productId>` - Product detail page
+- `GET /account.html` - User account management page
 
 ---
 
@@ -283,7 +592,7 @@ erDiagram
 Stores customer and administrator information.
 - `name` (String, required) - User's full name
 - `email` (String, required, unique) - Unique email address (lowercase)
-- `password` (String, required, minlength: 6) - Hashed password
+- `password` (String, required, minlength: 6) - Hashed password using bcrypt
 - `role` (Enum: 'customer' | 'admin', default: 'customer') - User role
 - `addresses` (Array of address objects) - Shipping addresses
 - `createdAt` (Date) - Account creation timestamp
@@ -317,69 +626,87 @@ Stores customer orders with items and shipping information.
 - `createdAt` (Date) - Order creation timestamp
 - `updatedAt` (Date) - Last update timestamp
 
-### Relationships
-
-1. **User → Order (One-to-Many)**: One user can place multiple orders
-2. **Order → Order Item (One-to-Many)**: One order contains multiple items
-3. **Product → Order Item (One-to-Many)**: One product can appear in multiple orders
-
 For detailed schema documentation, see [DATABASE_SCHEMA.md](./DATABASE_SCHEMA.md)
 
 ---
 
-## 🔧 Database Utilities
+## 🔐 Authentication & Security
 
-### Helper Functions
+### JWT Authentication
 
-The project includes database helper utilities in `utils/dbHelpers.js`:
+The application uses JSON Web Tokens (JWT) for secure authentication:
 
-- **User Helpers**: `findByEmail()`, `findById()`, `create()`, `findAll()`
-- **Product Helpers**: `findAll()`, `findById()`, `create()`, `updateStock()`, `getFeatured()`, `search()`
-- **Order Helpers**: `findAll()`, `findById()`, `create()`, `updateStatus()`, `findByUser()`
+- **Token Generation**: Tokens are generated upon successful login/registration
+- **Token Expiration**: Tokens expire after 7 days
+- **Token Storage**: Tokens are stored in browser localStorage
+- **Protected Routes**: API endpoints requiring authentication use the `authenticateToken` middleware
 
-### Usage Example
+### Password Security
 
-```javascript
-const { product, user, order } = require('./utils/dbHelpers');
+- **Hashing**: Passwords are hashed using bcryptjs before storage
+- **Minimum Length**: Passwords must be at least 6 characters
+- **Password Comparison**: Secure password comparison using bcrypt
+- **Password Change**: Requires current password verification
 
-// Get featured products
-const featured = await product.getFeatured();
+### Security Best Practices
 
-// Find user by email
-const user = await user.findByEmail('user@example.com');
+- Environment variables for sensitive data (JWT secret, MongoDB URI)
+- Input validation on all API endpoints
+- CORS middleware for cross-origin requests
+- Error handling without exposing sensitive information
+- MongoDB Atlas IP whitelisting for database security
 
-// Create order
-const newOrder = await order.create({
-  user: userId,
-  items: [{ product: productId, quantity: 2, price: 18.99 }],
-  shipping: 5.99
-});
-```
+---
 
-## 📡 API Documentation
+## 📱 Responsive Design
 
-API endpoints will be documented here as they are developed.
+### Breakpoints
 
-### Current Endpoints
+| Breakpoint | Screen Size | Layout Changes |
+|------------|-------------|----------------|
+| **Desktop** | > 968px | Multi-column grids, full navigation |
+| **Tablet** | 768px - 968px | Adjusted grids, smaller fonts |
+| **Mobile** | 480px - 768px | Single column, hamburger menu |
+| **Small Mobile** | < 480px | Compact layout, minimal spacing |
 
-#### Frontend Routes
-- `GET /` - Serves the main landing page (`index.html`)
-- `GET /cart.html` - Shopping cart page
-- `GET /checkout.html` - Checkout page
-- `GET /product.html?id=<productId>` - Product detail page
+### Mobile Features
 
-#### API Endpoints
-- `GET /api/products` - Get all products
-- `GET /api/products/:id` - Get single product by ID
-- `POST /api/checkout` - Process checkout and create order
-- `GET /api/orders/:orderId` - Get order details by ID
+- **Hamburger Menu**: Collapsible navigation menu
+- **Touch-Friendly**: All buttons optimized for touch (minimum 44px)
+- **iOS Optimization**: 16px font size prevents zoom on input focus
+- **Responsive Images**: Images scale properly on all devices
+- **Flexible Layouts**: Grid systems adapt to screen size
+- **Mobile Forms**: Full-width inputs, optimized spacing
+
+### Responsive Pages
+
+- ✅ Homepage - Fully responsive with mobile menu
+- ✅ Product Pages - Responsive product cards and details
+- ✅ Cart - Mobile-friendly cart items and summary
+- ✅ Checkout - Responsive forms and payment options
+- ✅ Account - Mobile-optimized account management
+
+---
+
+## 🚀 Future Enhancements
+
+- **Subscription Service** - Monthly coffee subscription boxes with personalized selections
+- **Coffee Quiz** - Interactive quiz to recommend the perfect coffee based on taste preferences
+- **Brewing Guides** - Step-by-step guides for different brewing methods
+- **Community Reviews** - Customer reviews and ratings for products
+- **Loyalty Program** - Points system and rewards for frequent customers
+- **Gift Options** - Gift cards and curated gift sets
+- **Email Notifications** - Order confirmations and shipping updates
+- **Admin Dashboard** - Product management and order processing interface
+- **Search & Filters** - Advanced product search and filtering
+- **Wishlist** - Save favorite products for later
 
 ---
 
 ## 👥 Team Members
 
-- **Jaskaran** - Developer
-- **David** - Developer
+- **Jaskaran Singh** - Developer
+- **David Chern** - Developer
 
 ---
 
@@ -393,6 +720,14 @@ This is a term project for **Group 11**. Team members should:
 4. Submit a pull request for review
 
 Please follow standard git workflow practices and ensure all code is tested before submitting.
+
+### Code Style Guidelines
+
+- Use ES6+ JavaScript features (async/await, arrow functions)
+- Follow consistent naming conventions (camelCase for variables, PascalCase for components)
+- Add comments for complex logic
+- Keep functions focused and single-purpose
+- Use meaningful variable and function names
 
 ---
 
@@ -408,7 +743,36 @@ This project is licensed under the ISC License.
 - [Mongoose Documentation](https://mongoosejs.com/)
 - [MongoDB Atlas Documentation](https://docs.atlas.mongodb.com/)
 - [Node.js Documentation](https://nodejs.org/docs/)
+- [JWT.io](https://jwt.io/) - JWT token debugging and information
+- [bcryptjs Documentation](https://www.npmjs.com/package/bcryptjs)
+
+---
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**Database Connection Failed**
+- Check your MongoDB Atlas IP whitelist settings
+- Verify your connection string in `.env`
+- Ensure your MongoDB Atlas cluster is running
+
+**Port Already in Use**
+- Change the PORT in `.env` file
+- Or kill the process using the port: `lsof -ti:3000 | xargs kill`
+
+**JWT Token Errors**
+- Ensure JWT_SECRET is set in `.env`
+- Clear browser localStorage and login again
+- Check token expiration (tokens expire after 7 days)
+
+**npm Install Issues**
+- Clear npm cache: `npm cache clean --force`
+- Delete `node_modules` and `package-lock.json`, then run `npm install` again
+- Ensure Node.js version is 18 or higher
 
 ---
 
 **Built with ☕ by Group 11**
+
+For questions or support, please open an issue on GitHub.
