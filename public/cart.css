@@ -424,6 +424,91 @@
     }
 }
 
+/* Payment Form Styles */
+.payment-form-container {
+    margin-top: 20px;
+    padding: 25px;
+    background: var(--bg-light);
+    border-radius: 10px;
+    border: 2px solid var(--coffee-cream);
+    animation: slideDown 0.3s ease;
+}
+
+.payment-form-container h3 {
+    color: var(--coffee-dark);
+    margin-bottom: 20px;
+    font-size: 1.4em;
+}
+
+.form-hint {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.85em;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* PayPal Button */
+.paypal-button-container {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.paypal-btn {
+    background: linear-gradient(135deg, #0070ba 0%, #003087 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.paypal-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 112, 186, 0.4);
+}
+
+.paypal-btn:active {
+    transform: translateY(0);
+}
+
+.paypal-note {
+    margin-top: 15px;
+    color: var(--text-light);
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+/* Disabled button state */
+.submit-order-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+}
+
+.submit-order-btn:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media (max-width: 768px) {
     .cart-item {
         grid-template-columns: 80px 1fr;
@@ -456,6 +541,15 @@
 
     .checkout-form-container {
         padding: 25px 20px;
+    }
+
+    .payment-form-container {
+        padding: 20px 15px;
+    }
+
+    .paypal-btn {
+        width: 100%;
+        justify-content: center;
     }
 }
 

@@ -1,0 +1,269 @@
+/* Account Page Styles */
+
+.account-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px 0;
+}
+
+.account-header h1 {
+    color: var(--coffee-dark);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.account-header p {
+    color: var(--text-light);
+    font-size: 1.1em;
+}
+
+/* Loading and Message States */
+.loading-state {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-light);
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #c3e6cb;
+}
+
+/* Account Sections */
+.account-section {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--coffee-cream);
+}
+
+.section-header h2 {
+    color: var(--coffee-dark);
+    font-size: 1.8em;
+    margin: 0;
+}
+
+.edit-btn, .add-btn {
+    background: linear-gradient(135deg, var(--coffee-dark) 0%, var(--coffee-medium) 100%);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.edit-btn:hover, .add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(111, 78, 55, 0.4);
+}
+
+.add-btn {
+    background: linear-gradient(135deg, var(--coffee-medium) 0%, var(--coffee-light) 100%);
+}
+
+/* Account Form */
+.account-form {
+    max-width: 600px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--coffee-dark);
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--coffee-cream);
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[readonly] {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--coffee-dark);
+    box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: flex-end;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--coffee-dark) 0%, var(--coffee-medium) 100%);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(111, 78, 55, 0.4);
+}
+
+.btn-secondary {
+    background: var(--bg-light);
+    color: var(--text-dark);
+    border: 2px solid var(--coffee-cream);
+}
+
+.btn-secondary:hover {
+    background: var(--coffee-cream);
+}
+
+.btn-small {
+    padding: 6px 12px;
+    font-size: 0.9em;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: var(--white);
+}
+
+.btn-danger:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+}
+
+/* Addresses List */
+.addresses-list {
+    margin-top: 20px;
+}
+
+.no-addresses {
+    text-align: center;
+    color: var(--text-light);
+    padding: 30px;
+    font-style: italic;
+}
+
+.address-card {
+    background: var(--bg-light);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--coffee-cream);
+    transition: border-color 0.3s ease;
+}
+
+.address-card:hover {
+    border-color: var(--coffee-medium);
+}
+
+.address-content {
+    flex: 1;
+}
+
+.address-content p {
+    margin: 5px 0;
+    color: var(--text-dark);
+}
+
+.address-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Address Form Container */
+.address-form-container {
+    margin-top: 20px;
+    padding: 20px;
+    background: var(--bg-light);
+    border-radius: 10px;
+    border: 2px solid var(--coffee-cream);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .account-header h1 {
+        font-size: 2em;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .address-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .address-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+

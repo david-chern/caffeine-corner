@@ -6,7 +6,9 @@
     <title>Checkout - Caffeine Corner ☕</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="cart.css">
+    <script src="js/auth.js" defer></script>
     <script src="js/cart.js" defer></script>
+    <script src="js/checkout.js" defer></script>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -100,9 +102,48 @@
                                         <option value="paypal">PayPal</option>
                                     </select>
                                 </div>
+
+                                <!-- Credit/Debit Card Payment Form -->
+                                <div id="cardPaymentForm" class="payment-form-container" style="display: none;">
+                                    <h3>Card Details</h3>
+                                    <div class="form-group">
+                                        <label for="cardholderName">Cardholder Name *</label>
+                                        <input type="text" id="cardholderName" name="cardholderName" placeholder="John Doe" maxlength="50">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cardNumber">Card Number *</label>
+                                        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" pattern="[0-9\s]{13,19}">
+                                        <small class="form-hint">Enter 13-19 digits</small>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="expirationDate">Expiration Date (MM/YY) *</label>
+                                            <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/YY" maxlength="5" pattern="(0[1-9]|1[0-2])\/\d{2}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cvv">CVV / Security Code *</label>
+                                            <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4" pattern="[0-9]{3,4}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="billingZip">Billing ZIP Code *</label>
+                                            <input type="text" id="billingZip" name="billingZip" placeholder="98101" maxlength="10" pattern="[0-9]{5,10}">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- PayPal Payment Form -->
+                                <div id="paypalPaymentForm" class="payment-form-container" style="display: none;">
+                                    <h3>PayPal Payment</h3>
+                                    <div class="paypal-button-container">
+                                        <button type="button" id="paypalButton" class="paypal-btn">
+                                            <span>🔵</span> Continue with PayPal
+                                        </button>
+                                        <p class="paypal-note">You will be redirected to PayPal to complete your payment</p>
+                                    </div>
+                                </div>
                             </div>
 
-                            <button type="submit" class="submit-order-btn">Place Order</button>
+                            <button type="submit" id="placeOrderBtn" class="submit-order-btn" disabled>Place Order</button>
                         </form>
                     </div>
 
@@ -151,11 +192,13 @@
         </div>
     </footer>
 
+    <script src="js/checkout.js" defer></script>
     <script>
         // Initialize checkout page when DOM loads
         document.addEventListener('DOMContentLoaded', () => {
             initCart();
             renderCheckoutPage();
+            initPaymentHandlers();
         });
 
         // Mobile menu toggle

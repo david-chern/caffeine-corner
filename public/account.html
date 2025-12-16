@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - Caffeine Corner ☕</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="account.css">
+    <script src="js/auth.js" defer></script>
+    <script src="js/account.js" defer></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">☕ Caffeine Corner</a></h1>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#products" class="nav-link">Products</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="account.html" class="auth-link">My Account</a></li>
+                <li id="logout-item" style="display: none;">
+                    <a href="#" class="nav-link" onclick="logout(); return false;">Logout</a>
+                </li>
+                <li>
+                    <a href="cart.html" class="cart-icon" title="Shopping Cart">
+                        <span class="cart-badge" style="display: none;">0</span>
+                        🛒
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main style="padding-top: 100px;">
+        <div class="container">
+            <div class="account-header">
+                <h1>My Account</h1>
+                <p>Manage your account information and preferences</p>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="loading-state">
+                <p>Loading account information...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="success-message" style="display: none;"></div>
+
+            <!-- Account Content -->
+            <div id="accountContent" class="account-content" style="display: none;">
+                <!-- Account Information Section -->
+                <section class="account-section">
+                    <div class="section-header">
+                        <h2>Account Information</h2>
+                        <button id="editInfoBtn" class="edit-btn">Edit</button>
+                    </div>
+
+                    <form id="accountInfoForm" class="account-form">
+                        <div class="form-group">
+                            <label for="accountName">Full Name</label>
+                            <input type="text" id="accountName" name="name" required readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="accountEmail">Email Address</label>
+                            <input type="email" id="accountEmail" name="email" required readonly>
+                        </div>
+
+                        <div class="form-actions" id="infoFormActions" style="display: none;">
+                            <button type="button" class="btn btn-secondary" onclick="cancelEdit('info')">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Shipping Addresses Section -->
+                <section class="account-section">
+                    <div class="section-header">
+                        <h2>Shipping Addresses</h2>
+                        <button id="addAddressBtn" class="add-btn">+ Add Address</button>
+                    </div>
+
+                    <div id="addressesList" class="addresses-list">
+                        <!-- Addresses will be loaded here -->
+                    </div>
+
+                    <!-- Add/Edit Address Form -->
+                    <div id="addressFormContainer" class="address-form-container" style="display: none;">
+                        <form id="addressForm" class="account-form">
+                            <input type="hidden" id="addressIndex" value="">
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="addressStreet">Street Address</label>
+                                    <input type="text" id="addressStreet" name="street" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="addressCity">City</label>
+                                    <input type="text" id="addressCity" name="city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="addressState">State</label>
+                                    <input type="text" id="addressState" name="state" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="addressZip">ZIP Code</label>
+                                    <input type="text" id="addressZip" name="zipCode" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="addressCountry">Country</label>
+                                    <input type="text" id="addressCountry" name="country" value="USA" required>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary" onclick="cancelAddressForm()">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Save Address</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Change Password Section -->
+                <section id="password" class="account-section">
+                    <div class="section-header">
+                        <h2>Change Password</h2>
+                    </div>
+
+                    <form id="passwordForm" class="account-form">
+                        <div class="form-group">
+                            <label for="currentPassword">Current Password</label>
+                            <input type="password" id="currentPassword" name="currentPassword" required placeholder="Enter current password">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="newPassword">New Password</label>
+                            <input type="password" id="newPassword" name="newPassword" required placeholder="Enter new password" minlength="6">
+                            <small class="form-hint">Password must be at least 6 characters long</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmNewPassword">Confirm New Password</label>
+                            <input type="password" id="confirmNewPassword" name="confirmNewPassword" required placeholder="Confirm new password">
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Change Password</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>☕ Caffeine Corner</h3>
+                    <p>Premium coffee blends delivered to your doorstep.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#products">Products</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="account.html">My Account</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Caffeine Corner. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

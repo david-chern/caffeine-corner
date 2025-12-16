@@ -351,7 +351,8 @@ async function submitCheckout(event) {
         shipping: getShippingCost(),
         tax: getTax(),
         total: getFinalTotal(),
-        paymentMethod: formData.get('paymentMethod')
+        paymentMethod: formData.get('paymentMethod'),
+        paymentDetails: null // Will be populated by checkout.js if card payment
     };
     
     try {
