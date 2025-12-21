@@ -1,7 +1,7 @@
 # ☕ Caffeine Corner
 
 > **Group 11** - Premium E-Commerce Platform for Coffee Enthusiasts
-> David Chernyak, Jaskaran Singh
+> <br>David Chernyak, Jaskaran Singh
 > **Link to website: https://caffeine-corner.onrender.com**
 
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
